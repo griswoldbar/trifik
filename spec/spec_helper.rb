@@ -1,12 +1,19 @@
 require 'rspec'
 require 'factory_girl'
 
-require './lib/trifik'
+require './lib/requirements'
 # Dir.glob("./spec/support/*.rb") {|file| require file}
 
 FactoryGirl.find_definitions
 
-HashtiveRecord::Base.database = HashtiveRecord::Storage::Database.new
+database = HashtiveRecord::Storage::Database.new
+[:actors,:items,:rooms,:connections,:players].each do |table_name|
+  table = HashtiveRecord::Storage::Table.new(table_name)
+  database << table
+end
+
+
+HashtiveRecord::Base.database = database
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
