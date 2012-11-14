@@ -28,15 +28,6 @@ describe "Actor" do
       end
     end
     
-    describe ":items" do
-      let(:rock)  { build(:item, id: :rock)}
-      let(:paper) { build(:item, id: :paper)} 
-      
-      it "has them" do
-        actor.items << rock
-        actor.items << paper
-        actor.items.should resemble([rock, paper])
-      end
-    end
+
   end
 end
