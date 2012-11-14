@@ -2,7 +2,7 @@ require 'rspec'
 require 'factory_girl'
 
 require './lib/requirements'
-# Dir.glob("./spec/support/*.rb") {|file| require file}
+Dir.glob("./spec/support/*.rb") {|file| require file}
 
 FactoryGirl.find_definitions
 
