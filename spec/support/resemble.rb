@@ -3,9 +3,9 @@ RSpec::Matchers.define :resemble do |expected|
     
     #ensures proxies match and object IDs don't matter
     if expected.is_a? Array
-      expected.map {|item| item.inspect[25..-1] } == actual.map {|item| item.inspect[25..-1] }
+      expected.map {|item| item.record } == actual.map {|item| item.record }
     else
-      actual.inspect[25..-1] == expected.inspect[25..-1]
+      actual.record == expected.record
     end
   end
 end

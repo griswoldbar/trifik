@@ -1,20 +1,18 @@
-module Container
-  def self.included(base)
-    base.has_many :items, as: :container
-  end
+module Container  
+  extend ActiveSupport::Concern
   
+  included { has_many :items, foreign_key: :container_id }
+
   def self.extended(object)
     #this hackery allows individual objects to become containers
     class << object
-      def self.reflection
-        superclass.reflection
-      end
-      
+
+      self.reflection = HashtiveRecord::Reflection.new(self.superclass)
       def self.name
         superclass.name
       end
       
-      has_many :items, as: :container
+      has_many :items, foreign_key: :container_id
     end
   end
   
