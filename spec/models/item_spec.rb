@@ -22,16 +22,14 @@ describe "Item" do
   end
   
   describe "associations" do
-    
     describe ":container" do
-      before(:each) do
-        class Box < HashtiveRecord::Base
-          include Container 
-        end
-      end
+      let(:holder) { build(:trif) }
+      
+      before { holder.modify(:container) }
       
       it "has one" do
-        
+        item.container = holder
+        item.container.should resemble holder
       end
     end
   end
