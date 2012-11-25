@@ -1,5 +1,3 @@
 class Player < Actor
     
-
-
 end
