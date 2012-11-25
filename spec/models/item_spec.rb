@@ -25,7 +25,7 @@ describe "Item" do
     describe ":container" do
       let(:holder) { build(:trif) }
       
-      before { holder.modify(:container) }
+      before { holder.add_modifier(:container) }
       
       it "has one" do
         item.container = holder

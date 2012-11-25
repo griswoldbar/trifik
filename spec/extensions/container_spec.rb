@@ -8,7 +8,7 @@ describe "Container" do
     let(:paper) { build(:item, id: :paper)} 
 
     it "has them" do
-      trif.modify(:container)
+      trif.add_modifier(:container)
       trif.items << rock
       trif.items << paper
       trif.items.should resemble([rock, paper])
