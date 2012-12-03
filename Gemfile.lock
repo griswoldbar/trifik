@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/griswoldbar/hashtive_record.git
-  revision: c23fd7cac19ec9b6c08f17962dd53c862527abd8
+  revision: f716291c5d025a90e576087041656653842f1b18
   specs:
     hashtive_record (0.1)
       activesupport
@@ -13,12 +13,12 @@ GEM
       multi_json (~> 1.0)
     diff-lcs (1.1.3)
     i18n (0.6.1)
-    multi_json (1.3.7)
+    multi_json (1.4.0)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rspec-core (2.12.0)
+    rspec-core (2.12.1)
     rspec-expectations (2.12.0)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.12.0)
