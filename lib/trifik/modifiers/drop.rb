@@ -1,5 +1,5 @@
 module Drop
-  include Modifier
+  include HashtiveRecord::Modifier
   # 
   # modifier :drop
   # defaults :drop_message => lambda {"You drop the #{name}"},

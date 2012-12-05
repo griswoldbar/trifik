@@ -3,11 +3,13 @@ Bundler.require
 
 require 'hashtive_record'
 
+require_relative 'trifik/config/modifier'
+
 require_relative 'trifik/extensions/container'
-require_relative 'trifik/extensions/droppable'
-require_relative 'trifik/extensions/killable'
-require_relative 'trifik/extensions/smashable'
-require_relative 'trifik/extensions/takeable'
+require_relative 'trifik/modifiers/drop'
+require_relative 'trifik/modifiers/kill'
+require_relative 'trifik/modifiers/smash'
+require_relative 'trifik/modifiers/take'
 require_relative 'trifik/models/actor'
 require_relative 'trifik/models/connection'
 require_relative 'trifik/models/item'

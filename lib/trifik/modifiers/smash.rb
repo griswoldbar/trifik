@@ -1,5 +1,4 @@
 module Smash
-  # include Modifier
-  # modifier :smash
+  include HashtiveRecord::Modifier
 
 end

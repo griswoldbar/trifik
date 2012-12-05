@@ -1,7 +1,5 @@
 module Kill
-  # include Modifier
-  # 
-  # # modifier :kill
-  # 
+  include HashtiveRecord::Modifier
+
   
 end
