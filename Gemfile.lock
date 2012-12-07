@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/griswoldbar/hashtive_record.git
-  revision: bbe5c583cba0c438b8e80067b8ee1b8dbf7c3d3e
+  revision: c6940afb53c226aa334b04af9da5e98c72205aab
   specs:
     hashtive_record (0.1)
       activesupport

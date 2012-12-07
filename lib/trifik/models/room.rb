@@ -23,12 +23,14 @@ class Room < HashtiveRecord::Base
     end
   end
 
-
-  private
   def adjacent(direction)
     return nil unless directions.include?(direction)
     exit = exits.find {|exit| exit.direction == direction }
     exit ? exit.entrance : nil
+  end
+  
+  def respond_to?(method)
+    super || Room.directions.include?(method)
   end
   
 

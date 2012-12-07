@@ -1,24 +1,29 @@
 require 'spec_helper'
 
 describe "Mover" do
-  let(:kitchen_to_pantry) { build(:connection, direction: :west) }
-  let(:pantry_to_kitchen) { build(:connection, direction: :east) }
+  include_context "connected rooms"
   
-  let(:kitchen)   { build(:room) }
-  let(:pantry)    { build(:room) }
+  let(:trif) { build(:actor) }
   
-  let(:trif) { build(:trif) }
   
-  describe "#items" do
-    let(:rock)  { build(:item, id: :rock)}
-    let(:paper) { build(:item, id: :paper)} 
-
-    it "has them" do
-      trif.add_modifier(:container)
-      trif.items << rock
-      trif.items << paper
-      trif.items.should resemble([rock, paper])
-      trif.modifier_modules.should include(:container)
+  describe "#move" do
+    before do
+      trif.add_modifier(:mover)
+      trif.room = kitchen
+    end
+    
+    it "can move" do
+      trif.room.should resemble kitchen
+      trif.move(:west)
+      trif.room.should resemble pantry
+      # trif.move(:east)
+      # trif.room.should resemble kitchen
+    end
+    
+    it "doesn't move given an invalid direction" do
+      trif.room.should resemble kitchen
+      trif.move(:east)
+      trif.room.should resemble kitchen
     end
   end
 

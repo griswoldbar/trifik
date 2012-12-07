@@ -56,18 +56,7 @@ describe "Room" do
     end
     
     describe "direction readers" do
-      let(:kitchen_to_pantry) { build(:connection, direction: :west) }
-      let(:pantry_to_kitchen) { build(:connection, direction: :east) }
-      
-      let(:kitchen)   { build(:room) }
-      let(:pantry)    { build(:room) }
-      
-      before(:each) do
-        kitchen.exits << kitchen_to_pantry
-        pantry.entrances << kitchen_to_pantry
-        pantry.exits << pantry_to_kitchen
-        kitchen.entrances << pantry_to_kitchen
-      end
+      include_context "connected rooms"
       
       it "points to the appropriate room" do
         kitchen.west.should resemble pantry

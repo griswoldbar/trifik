@@ -10,6 +10,7 @@ require_relative 'trifik/config/application'
 
 
 require_relative 'trifik/extensions/container'
+require_relative 'trifik/extensions/mover'
 require_relative 'trifik/modifiers/drop'
 require_relative 'trifik/modifiers/kill'
 require_relative 'trifik/modifiers/smash'
