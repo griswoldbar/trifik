@@ -7,8 +7,12 @@ class Room < HashtiveRecord::Base
   has_many :exits, class_name: :connection, foreign_key: :exit_id
   has_many :entrances, class_name: :connection, foreign_key: :entrance_id
   
-  def self.directions
-    Trifik::DIRECTIONS
+  def directions
+    exits.map(&:direction)
+  end
+  
+  def has_direction?(direction)
+    directions.include? direction
   end
   
   def method_missing(method, *args, &block)
@@ -22,6 +26,7 @@ class Room < HashtiveRecord::Base
 
   private
   def adjacent(direction)
+    return nil unless directions.include?(direction)
     exit = exits.find {|exit| exit.direction == direction }
     exit ? exit.entrance : nil
   end

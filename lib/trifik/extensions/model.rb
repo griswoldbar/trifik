@@ -17,6 +17,7 @@ module Trifik
   
   module Model
     extend Configuration
+    extend ActiveSupport::Concern
 
     def screen_name
       record.screen_name || record.name
@@ -25,6 +26,13 @@ module Trifik
     def self.included(base)
       base.columns *default_columns
     end
+    
+    module ClassMethods
+      def directions
+        Trifik::DIRECTIONS
+      end
+    end
+    
   end
   
 end
