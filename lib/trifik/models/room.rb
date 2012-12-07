@@ -22,6 +22,11 @@ class Room < HashtiveRecord::Base
       super(method, *args, &block)
     end
   end
+  
+  #untested
+  def adjacents
+    exits.map(&:entrance)
+  end
 
   def adjacent(direction)
     return nil unless directions.include?(direction)

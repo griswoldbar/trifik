@@ -64,13 +64,13 @@ describe "Room" do
       end
       
       it "returns nil if there is nothing in that direction" do
-        kitchen.north.should == nil
+        kitchen.southeast.should == nil
       end
       
       describe "#directions" do
         it "returns all the directions possible from the room" do
-          kitchen.directions.should == [:west]
-          pantry.directions.should == [:east]
+          kitchen.directions.should == [:west, :north]
+          pantry.directions.should == [:east, :northeast]
         end
       end
       

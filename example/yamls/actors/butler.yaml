@@ -3,3 +3,10 @@
   :article: "the"
   :description: "He is a serious looking man"
   :room_id: :hall
+  :modifiers:
+    :patroller:
+      :path:
+        - :hall
+        - :ballroom
+        - :garden
+        - :ballroom
