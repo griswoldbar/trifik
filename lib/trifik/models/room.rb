@@ -1,8 +1,7 @@
 class Room < HashtiveRecord::Base
+  include Trifik::Model
   include Container
-  
-  columns :name, :description
-  
+      
   has_many :actors
   has_many :players
   has_many :exits, class_name: :connection, foreign_key: :exit_id

@@ -1,6 +1,6 @@
 module Container  
   extend ActiveSupport::Concern
-  
+
   included { has_many :items, foreign_key: :container_id }
 
   def self.extended(object)
@@ -11,9 +11,10 @@ module Container
       def self.name
         superclass.name
       end
-      
+
       has_many :items, foreign_key: :container_id
     end
   end
-  
+
 end
+

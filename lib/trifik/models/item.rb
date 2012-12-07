@@ -1,5 +1,6 @@
 class Item < HashtiveRecord::Base
-  columns :name, :description
+  include Trifik::Model
+  
   belongs_to :container, polymorphic: true
 
 

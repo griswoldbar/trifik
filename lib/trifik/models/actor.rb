@@ -1,7 +1,7 @@
 class Actor < HashtiveRecord::Base
+  include Trifik::Model
   include Container
   
-  columns :name, :description
   belongs_to :room
 
   class << self
