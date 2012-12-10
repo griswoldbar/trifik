@@ -23,7 +23,6 @@ class Room < HashtiveRecord::Base
     end
   end
   
-  #untested
   def adjacents
     exits.map(&:entrance)
   end
