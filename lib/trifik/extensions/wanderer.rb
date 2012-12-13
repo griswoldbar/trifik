@@ -1,5 +1,4 @@
 module Wanderer
-  include Mover
   include Tickable
   
   def tock
