@@ -1,6 +1,7 @@
 :ballroom:
   :name: "the ballroom"
   :description: "A beautiful ballroom"
+  :zone_id: :house
   :collections: 
     :exits:
       :ballroom_to_hall:

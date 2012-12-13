@@ -1,6 +1,7 @@
 :hall:
   :name: "hall"
   :description: "A large hall"
+  :zone_id: :house
   :collections: 
     :exits:
       :hall_to_garden:

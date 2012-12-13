@@ -4,6 +4,7 @@
   - :items
   - :players
   - :rooms
+  - :zones
 :synonyms:
   :exits: :connections
   :entrances: :connections

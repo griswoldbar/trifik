@@ -12,4 +12,9 @@ class Actor < HashtiveRecord::Base
     end
   end
   
+  #untested
+  def zone
+    room.zone
+  end
+  
 end

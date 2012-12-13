@@ -4,9 +4,9 @@
   :container_id: :hall
   :container_type: :room
   :modifiers:
-    :smashable:
-      :smash_description: "A smashed grandfather clock"
-      :smash_message: "You smash the grandfather clock with your fist. Shattered glass showers the floor."
-    :takeable:
-    :droppable:
+    :smash:
+      :description: "A smashed grandfather clock"
+      :message: "You smash the grandfather clock with your fist. Shattered glass showers the floor."
+    :take: {}
+    :drop: {}
       

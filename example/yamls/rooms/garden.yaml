@@ -1,6 +1,7 @@
 :garden:
   :name: "garden"
   :description: "A beautiful garden"
+  :zone_id: :house
   :collections:
     :exits:
       :garden_to_hall:
