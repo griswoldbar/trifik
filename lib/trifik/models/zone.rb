@@ -1,6 +1,4 @@
 class Zone < HashtiveRecord::Base
-  #untested
-  
   has_many :rooms
   
   def ticker

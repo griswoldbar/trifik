@@ -3,6 +3,10 @@ require 'spec_helper'
 describe "Room" do
   let(:room) { build(:room) }
   
+  it_behaves_like(:model) do
+    let(:model) {build(:room)}
+  end
+  
   describe "attributes" do
     
     describe ":name" do
@@ -52,6 +56,14 @@ describe "Room" do
         room.exits << exit1
         room.exits << exit2
         room.exits.should resemble([exit1,exit2])
+      end
+    end
+    
+    describe ":zone" do
+      let(:zone) { build(:zone) }
+      it "has one" do
+        room.zone = zone
+        room.zone.should resemble zone
       end
     end  
   end

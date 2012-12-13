@@ -1,4 +1,6 @@
 shared_examples_for :actor do
+  let(:room) { build(:room) }
+  
   describe "attributes" do
     describe ":name" do
       it "has one" do
@@ -17,7 +19,6 @@ shared_examples_for :actor do
 
   describe "associations" do
     describe ":room" do
-      let(:room) { build(:room) }
       it "has one" do
         actor.room = room
         actor.room.should resemble room
@@ -32,6 +33,15 @@ shared_examples_for :actor do
         actor.items << rock
         actor.items << paper
         actor.items.should resemble([rock, paper])
+      end
+    end
+  end
+  
+  describe "public methods" do
+    describe "#zone" do
+      it "returns its room's zone" do
+        actor.room = room
+        actor.zone.should == room.zone
       end
     end
   end

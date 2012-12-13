@@ -6,7 +6,7 @@ class Room < HashtiveRecord::Base
   has_many :players
   has_many :exits, class_name: :connection, foreign_key: :exit_id
   has_many :entrances, class_name: :connection, foreign_key: :entrance_id
-  belongs_to :zone #untested
+  belongs_to :zone
   
   def directions
     exits.map(&:direction)

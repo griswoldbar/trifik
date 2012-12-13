@@ -5,10 +5,10 @@ shared_context "connected rooms" do
   let(:dining_room_to_kitchen) { build(:connection, direction: :south) }
   let(:pantry_to_dining_room)  { build(:connection, direction: :northeast) }
   let(:dining_room_to_pantry)  { build(:connection, direction: :southwest) }
-  
-  let(:kitchen)   { build(:room, name: "kitchen") }
-  let(:pantry)    { build(:room, name: "pantry" ) }
-  let(:dining_room) { build(:room, name: "dining room") }
+  let(:zone)      { build(:zone) }
+  let(:kitchen)   { build(:room, name: "kitchen", zone: zone) }
+  let(:pantry)    { build(:room, name: "pantry", zone: zone ) }
+  let(:dining_room) { build(:room, name: "dining room", zone: zone) }
 
   before(:each) do
     kitchen.exits << kitchen_to_pantry

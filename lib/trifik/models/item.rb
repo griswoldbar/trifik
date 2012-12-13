@@ -3,7 +3,6 @@ class Item < HashtiveRecord::Base
   
   belongs_to :container, polymorphic: true
 
-  #untested
   def zone
     container.zone
   end

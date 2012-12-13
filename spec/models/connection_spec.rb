@@ -3,6 +3,10 @@ require 'spec_helper'
 describe "Connection" do
   let(:connection) { build(:connection) }
   
+  it_behaves_like(:model) do
+    let(:model) {build(:connection)}
+  end
+  
   describe "attributes" do
     describe ":description" do
       it "has one" do

@@ -1,9 +1,7 @@
 module Trifik
   
   module Configuration
-    
-    # attr_accessor :world
-    
+        
     def configure(&block)  
       instance_eval(&block)  
     end
@@ -26,13 +24,9 @@ module Trifik
       record.screen_name || record.name
     end
     
-    #untested
     def ticker
       zone.ticker
     end
-    # def world
-    #   Trifik::Model.world
-    # end
 
     def self.included(base)
       base.columns *default_columns
