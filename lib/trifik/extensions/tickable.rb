@@ -1,9 +1,5 @@
 module Tickable
-  #untested
-  #not sure this is best way... but making the record subscribe to
-  #the ticker makes sense in that there's only one of the record
-  #and it always exists
-  
+
   def self.included(base)
     base.send(:define_singleton_method, :extended) do |thing|
       thing.make_tickable(thing.ticker)

@@ -3,7 +3,8 @@ FactoryGirl.define do
     sequence(:id)   {|n| "actor-#{n}".to_sym}
     sequence(:name) {|n| "Actor #{n}" }
     description "A non-descript person"
-    initialize_with { Actor.build(id, {name: name, description: description})}
+    room {FactoryGirl.build :room}
+    initialize_with { Actor.build(id, {name: name, description: description, room_id: room.id })}
   end
   
   factory :player, parent: :actor, :class => Player do

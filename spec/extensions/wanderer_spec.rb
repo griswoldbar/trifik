@@ -3,17 +3,19 @@ require 'spec_helper'
 describe Wanderer do
   include_context "connected rooms"
   
-  let(:wanderer) { build(:actor) }
+  let!(:wanderer) { build(:actor).tap{|a| a.add_modifier(:wanderer)} }
   
-  before(:each) do
-    wanderer.room = kitchen
-    wanderer.add_modifier(:wanderer)
+  it_behaves_like :tickable do
+    let(:tickable) { build(:actor).tap{|a| a.add_modifier(:wanderer)} }
   end
-  describe "#walk" do
+  
+  describe "#tock" do
     it "moves the thing into an adjacent room" do
-      [pantry.id, dining_room.id].should include(wanderer.tap(&:walk).room.id)
+      wanderer.room = kitchen
+      wanderer.stub(:zone).and_return kitchen.zone
+      [pantry.id, dining_room.id].should include(wanderer.tap(&:tock).room.id)
     end
   end
-  
+    
   
 end
