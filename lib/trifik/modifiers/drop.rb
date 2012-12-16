@@ -1,3 +1,4 @@
+
 module Drop
   include HashtiveRecord::Modifier
   # 
