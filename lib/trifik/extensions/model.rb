@@ -23,6 +23,10 @@ module Trifik
     def screen_name
       record.screen_name || record.name
     end
+
+    def article
+      record.article || "a"
+    end
     
     def ticker
       zone.ticker

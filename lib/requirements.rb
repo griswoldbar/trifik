@@ -7,6 +7,7 @@ require_relative 'trifik/extensions/model'
 
 require_relative 'trifik/config/modifier'
 require_relative 'trifik/ticker'
+require_relative 'trifik/executive'
 # require_relative 'trifik/world'
 
 require_relative 'trifik/extensions/tickable'

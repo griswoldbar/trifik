@@ -21,4 +21,10 @@ shared_examples_for :model do
       model.screen_name.should == model.name
     end
   end
+  
+  describe "#article" do
+    it "defaults to 'a'" do
+      model.article.should == "a"
+    end
+  end
 end
