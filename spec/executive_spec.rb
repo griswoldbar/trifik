@@ -13,12 +13,24 @@ describe Executive do
   describe "#look" do
     
     it "describes the player's room" do
-      expected_description = ["#{room.article.capitalize} #{room.name}.",
-                              "#{room.description.capitalize}.",
-                              "#{actor1.name.capitalize} is here.",
-                              "#{actor2.name.capitalize} is here"].join("\n")
+      expected_description = ["#{room.article.capitalize} #{room.name}",
+                              "#{room.description}.",
+                              "#{actor1.article_name.titleize} is here.",
+                              "#{actor2.article_name.titleize} is here.",
+                              "There is:",
+                              object1.article_name,
+                              object2.article_name].join("\n")
                               
       executive.look.should == expected_description
+    end
+  end
+  
+  describe "directions" do
+    it "sends the player in the corresponding direction" do
+      Trifik::DIRECTIONS.each {|dir|
+        player.should_receive(:move).with(dir)
+        executive.send(dir)
+      }
     end
   end
 end

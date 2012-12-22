@@ -34,6 +34,10 @@ class Room < HashtiveRecord::Base
     exit ? exit.entrance : nil
   end
   
+  def title
+    "#{article.capitalize} #{name}"
+  end
+  
   def respond_to?(method)
     super || Room.directions.include?(method)
   end

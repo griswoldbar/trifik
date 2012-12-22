@@ -23,8 +23,20 @@ shared_examples_for :model do
   end
   
   describe "#article" do
-    it "defaults to 'a'" do
-      model.article.should == "a"
+    it "defaults to ''" do
+      model.article.should == ""
+    end
+  end
+  
+  describe "#article_name" do
+    it "concatenates the article with the name" do
+      model.stub(:article).and_return("the")
+      model.article_name.should == "the #{model.name}"
+    end
+    
+    it "returns the name if there is no article" do
+      model.stub(:article).and_return("")
+      model.article_name.should == model.name
     end
   end
 end

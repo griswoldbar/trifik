@@ -5,13 +5,19 @@ class Executive
     @player = player
   end
   
-
-  
   def look
-    ["#{room.article.capitalize} #{room.name}.",
+    [room.title,
      "#{room.description.capitalize}.",
-     room.actors.map{|a| "#{a.name.capitalize} is here" }
-    ].join("\n")
+     room.actors.map{|a| "#{a.article_name.titleize} is here." },
+     "There is:",
+     room.items.map(&:article_name)
+    ].flatten.join("\n")
+  end
+  
+  Trifik::DIRECTIONS.each do |direction|
+    define_method direction do
+      player.move(direction)
+    end
   end
 
 

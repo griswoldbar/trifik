@@ -4,7 +4,7 @@ Bundler.require
 require 'hashtive_record'
 
 require_relative 'trifik/extensions/model'
-
+require_relative 'trifik/config/application'
 require_relative 'trifik/config/modifier'
 require_relative 'trifik/ticker'
 require_relative 'trifik/executive'
@@ -28,4 +28,3 @@ require_relative 'trifik/models/item'
 require_relative 'trifik/models/player'
 require_relative 'trifik/models/room'
 
-require_relative 'trifik/config/application'

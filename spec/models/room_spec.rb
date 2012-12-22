@@ -107,5 +107,12 @@ describe "Room" do
       end
     end
   end
-  
+
+  describe "public methods" do
+    describe "#title" do
+      it "returns the article and name" do
+        room.title.should == "#{room.article.capitalize} #{room.name.capitalize}"
+      end
+    end
+  end
 end

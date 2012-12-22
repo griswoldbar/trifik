@@ -25,7 +25,11 @@ module Trifik
     end
 
     def article
-      record.article || "a"
+      record.article || ""
+    end
+    
+    def article_name
+      self.article.blank? ? name : "#{article} #{name}"
     end
     
     def ticker
