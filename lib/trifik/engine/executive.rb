@@ -13,13 +13,24 @@ class Executive
      room.items.map(&:article_name)
     ].flatten.join("\n")
   end
-  
+
+  def execute(verb, object=nil, indirect_object=nil)
+    if !!object
+      if !!indirect_object
+        object.send(verb, player, indirect_object)
+      else
+        object.send(verb, player)
+      end
+    else
+      send(verb)
+    end
+  end
+    
   Trifik::DIRECTIONS.each do |direction|
     define_method direction do
       player.move(direction)
     end
   end
-
 
   private
   
