@@ -7,4 +7,8 @@ class Item < HashtiveRecord::Base
     container.zone
   end
 
+  private
+  def not_possessed_message
+    "You don't have a #{name}"
+  end
 end

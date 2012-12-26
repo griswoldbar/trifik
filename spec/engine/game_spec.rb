@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 class MockExecutive
-
   def say_hi(name)
     "hai yourself, #{name}"
   end
@@ -10,10 +9,7 @@ end
 describe Game do
   let(:interpreter) { mock 'interpreter' }
   let(:executive)   { MockExecutive.new }
-  let(:command)     { {
-                        command: proc {|name| say_hi(name) }, args: ["johnny"]
-                    } }
-                    
+  let(:command)     { { command: proc {|name| say_hi(name) }, args: ["johnny"] } }
   let(:game)        { Game.new(interpreter, executive) }
 
   describe "#play" do
