@@ -15,6 +15,11 @@ module Container
       has_many :items, foreign_key: :container_id
     end
   end
+  
+  def has_item?(item)
+    items.include? item
+  end
+  
 
 end
 

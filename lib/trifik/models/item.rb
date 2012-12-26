@@ -9,6 +9,10 @@ class Item < HashtiveRecord::Base
 
   private
   def not_possessed_message
-    "You don't have a #{name}"
+    "You don't have a #{name}!"
+  end
+  
+  def not_present_message
+    "You can't see a #{name} here!"
   end
 end

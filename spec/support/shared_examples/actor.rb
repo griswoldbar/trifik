@@ -44,18 +44,5 @@ shared_examples_for :actor do
         actor.zone.should == room.zone
       end
     end
-    
-    describe "#has_item?" do
-      let(:item) { build(:item) }
-      
-      it "returns true if the actor has the item" do
-        actor.items << item
-        actor.should have_item item
-      end
-      
-      it "returns false if the actor does not have the item" do
-        actor.should_not have_item item
-      end
-    end
   end
 end

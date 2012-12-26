@@ -12,10 +12,6 @@ class Actor < HashtiveRecord::Base
     end
   end
   
-  def has_item?(item)
-    items.include? item
-  end
-  
   def zone
     room.zone
   end

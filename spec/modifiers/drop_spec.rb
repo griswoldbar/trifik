@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Drop" do
   let(:item) { build(:item).tap {|t| t.extend(Drop) } }
   let(:player) { build(:player) }
-  let(:drop_message) { }
   
   before(:each) do
     item.stub(:drop_message).and_return("plop")
