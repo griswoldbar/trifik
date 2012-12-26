@@ -1,16 +1,21 @@
 class Interpreter
-  attr_reader :instructions
   
-  def initialize()
-    @instructions = []
+  @@instructions = []
+
+  def self.instructions
+    @@instructions
   end
   
-  def define &block
+  def instructions
+    @@instructions
+  end
+  
+  def self.define &block
     instance_eval(&block)
   end
   
-  def given(regex, &command)
-    @instructions << { regex: regex, command: command }
+  def self.given(regex, &command)
+    @@instructions << { regex: regex, command: command }
   end
 
   def interpret(text)

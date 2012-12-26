@@ -5,17 +5,17 @@ describe Interpreter do
   let(:block)       { proc{ 'wibble' } }
   
   
-  describe "#define" do
+  describe ".define" do
     it "evaluates the block given" do
-      interpreter.should_receive(:instance_eval).with(&block)
-      interpreter.define &block
+      Interpreter.should_receive(:instance_eval).with(&block)
+      Interpreter.define &block
     end
   end
   
-  describe "#given" do
+  describe ".given" do
     it "creates a new instruction" do
-      interpreter.given(/blah/, &block)
-      interpreter.instructions.should include({regex: /blah/, command: block})
+      Interpreter.given(/blah/, &block)
+      Interpreter.instructions.should include({regex: /blah/, command: block})
     end
   end
   
