@@ -9,6 +9,7 @@ require_relative 'trifik/config/modifier'
 require_relative 'trifik/engine/ticker'
 require_relative 'trifik/engine/executive'
 require_relative 'trifik/engine/interpreter'
+require_relative 'trifik/config/interpreter'
 require_relative 'trifik/engine/game'
 # require_relative 'trifik/world'
 
