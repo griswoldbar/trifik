@@ -1,27 +1,37 @@
 require 'spec_helper'
 
 describe Executive do
-  let!(:player)    { build(:player) }
+  let!(:player)   { build(:player) }
   let(:executive) { build(:executive, player: player) }
   let(:room)      { player.room }
-  let(:object1)    { build(:item, container: player.room) }
-  let(:object2)    { build(:item, container: player.room) }
+  let(:object1)   { build(:item, container: player.room) }
+  let(:object2)   { build(:item, container: player.room) }
   let(:actor1)    { build(:actor, room: player.room) }
   let(:actor2)    { build(:actor, room: player.room) }
   
   
   describe "#look" do
+    before(:each) do
+      room.exits << build(:connection)
+    end
     
     it "describes the player's room" do
-      expected_description = ["#{room.article.capitalize} #{room.name}",
+      Presenter.stub(:header).and_return(room.title)
+      expected_description = [room.title,
                               "#{room.description}.",
                               "#{actor1.article_name.titleize} is here.",
                               "#{actor2.article_name.titleize} is here.",
+                              room.exits.first.description.capitalize,
                               "There is:",
-                              object1.article_name,
-                              object2.article_name].join("\n")
+                              "  #{object1.article_name}",
+                              "  #{object2.article_name}"].join("\n")
                               
       executive.look.should == expected_description
+    end
+    
+    it "describes the room correctly when there are no objects present" do
+      executive = build(:executive)
+      executive.look.should_not match (/There is:/)
     end
   end
   
@@ -39,6 +49,12 @@ describe Executive do
     it "runs a method on the subject with the object as argument if supplied" do
       actor1.should_receive(:blah).with(player, object1)
       executive.execute(:blah, actor1, object1)
+    end
+  end
+  
+  describe "#no_such_move" do
+    it "outputs an appropriate message" do
+      executive.no_such_move("blah").should == "I don't understand what you mean by 'blah'"
     end
   end
   

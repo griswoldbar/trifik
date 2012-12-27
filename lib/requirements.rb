@@ -11,7 +11,7 @@ require_relative 'trifik/engine/executive'
 require_relative 'trifik/engine/interpreter'
 require_relative 'trifik/config/interpreter'
 require_relative 'trifik/engine/game'
-# require_relative 'trifik/world'
+require_relative 'trifik/presentation/presenter'
 
 require_relative 'trifik/extensions/tickable'
 require_relative 'trifik/extensions/container'

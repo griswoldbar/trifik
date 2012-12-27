@@ -5,7 +5,7 @@
   :collections:
     :exits:
       :garden_to_hall:
-        :description: "door"
+        :description: "a door leads to the north"
         :direction: :north
         :entrance_id: :hall
     :actors:

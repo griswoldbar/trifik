@@ -35,11 +35,11 @@ class Room < HashtiveRecord::Base
   end
   
   def title
-    "#{article.capitalize} #{name}"
+    "#{article} #{name}".strip.capitalize
   end
   
   def respond_to?(method)
-    super || Room.directions.include?(method)
+    Room.directions.include?(method) || super
   end
   
 

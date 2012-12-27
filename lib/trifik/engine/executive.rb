@@ -6,12 +6,16 @@ class Executive
   end
   
   def look
-    [room.title,
-     "#{room.description.capitalize}.",
-     room.actors.map{|a| "#{a.article_name.titleize} is here." },
-     "There is:",
-     room.items.map(&:article_name)
-    ].flatten.join("\n")
+    information = []
+    information << Presenter.header(room.title)
+    information << room.description + "."
+    information << room.actors.map{|a| "#{a.article_name.titleize} is here." }
+    information << room.exits.map{|r| r.description.capitalize}
+    if room.items.any?
+      information << "There is:"
+      information << room.items.map{|room| "  #{room.article_name}"}
+    end
+    information.flatten.join("\n")
   end
 
   def execute(verb, object=nil, indirect_object=nil)
@@ -26,9 +30,17 @@ class Executive
     end
   end
     
+  def no_such_move(command)
+    "I don't understand what you mean by \'#{command}'"
+  end
+  
   Trifik::DIRECTIONS.each do |direction|
     define_method direction do
-      player.move(direction)
+      if player.room == player.move(direction)
+        "You can't go that way"
+      else
+        look
+      end      
     end
   end
 

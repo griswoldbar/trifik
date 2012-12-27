@@ -5,6 +5,6 @@
   :collections: 
     :exits:
       :ballroom_to_hall:
-        :description: "A passage"
+        :description: "a passage leads to the west"
         :direction: :west
         :entrance_id: :hall

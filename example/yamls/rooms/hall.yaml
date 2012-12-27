@@ -5,10 +5,10 @@
   :collections: 
     :exits:
       :hall_to_garden:
-        :description: "door"
+        :description: "a door leads to the south"
         :direction: :south
         :entrance_id: :garden
       :hall_to_ballroom:
-        :description: "passage"
+        :description: "a passage leads east"
         :direction: :east
         :entrance_id: :ballroom

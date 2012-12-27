@@ -10,7 +10,7 @@ class Game
   end
   
   def play
-    input = input_device.gets
+    input = input_device.gets.chomp
     command = interpreter.interpret(input)
     instruction = command[:command]
     args = command[:args]

@@ -1,6 +1,8 @@
 class Interpreter
-  
+  class InstructionNotFound < Exception; end
   @@instructions = []
+
+  BAD_COMMAND = proc {|text| self.no_such_move(text) }
 
   def self.instructions
     @@instructions
@@ -20,8 +22,12 @@ class Interpreter
 
   def interpret(text)
     instruction = matching_instruction(text)
-    match_data = instruction[:regex].match(text)
-    { command: instruction[:command], args: match_data.captures.map(&:to_sym) }
+    if !!instruction
+      match_data = instruction[:regex].match(text)
+      { command: instruction[:command], args: match_data.captures.map(&:to_sym) }
+    else
+      { command: BAD_COMMAND, args: text }
+    end
   end
 
   # def normalize(text)
