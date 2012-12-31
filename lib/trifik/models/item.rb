@@ -1,5 +1,5 @@
 class Item < HashtiveRecord::Base
-  include Trifik::Model
+  include Trifik::Thing
   
   belongs_to :container, polymorphic: true
 

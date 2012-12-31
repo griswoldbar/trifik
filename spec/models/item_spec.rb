@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Item" do
   let(:item) { build(:item) }
 
-  it_behaves_like(:model) do
-    let(:model) {build(:item)}
+  it_behaves_like(:thing) do
+    let(:thing) {build(:item)}
   end
   
   describe "attributes" do

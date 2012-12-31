@@ -1,4 +1,4 @@
-Trifik::Model.configure do
+Trifik::Thing.configure do
   self.default_columns = :screen_name, :name, :description, :article
   # self.world = World.new
 end

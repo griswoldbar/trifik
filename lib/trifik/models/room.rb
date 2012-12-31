@@ -1,5 +1,5 @@
 class Room < HashtiveRecord::Base
-  include Trifik::Model
+  include Trifik::Thing
   include Container
       
   has_many :actors

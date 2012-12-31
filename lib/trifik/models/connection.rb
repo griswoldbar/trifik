@@ -1,5 +1,5 @@
 class Connection < HashtiveRecord::Base
-  include Trifik::Model
+  include Trifik::Thing
 
   columns :direction
   

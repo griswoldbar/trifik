@@ -1,5 +1,5 @@
 class Actor < HashtiveRecord::Base
-  include Trifik::Model
+  include Trifik::Thing
   include Container
   
   belongs_to :room

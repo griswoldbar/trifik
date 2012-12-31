@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Player" do
   
-  it_behaves_like(:model) do
-    let(:model) {build(:room)}
+  it_behaves_like(:thing) do
+    let(:thing) {build(:room)}
   end
   
   it_behaves_like(:actor) do

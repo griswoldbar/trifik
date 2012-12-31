@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Connection" do
   let(:connection) { build(:connection) }
   
-  it_behaves_like(:model) do
-    let(:model) {build(:connection)}
+  it_behaves_like(:thing) do
+    let(:thing) {build(:connection)}
   end
   
   describe "attributes" do
