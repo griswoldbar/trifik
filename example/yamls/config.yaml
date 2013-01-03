@@ -5,6 +5,7 @@
   - :players
   - :rooms
   - :zones
+  - :conversations
 :synonyms:
   :exits: :connections
   :entrances: :connections

@@ -3,6 +3,8 @@ class Actor < HashtiveRecord::Base
   include Container
   
   belongs_to :room
+  #untested
+  has_many :conversations
 
   class << self
     def inherited(base)
@@ -14,6 +16,11 @@ class Actor < HashtiveRecord::Base
   
   def zone
     room.zone
+  end
+  
+  #untested
+  def no_reply
+    record.no_reply || "I don't understand"
   end
   
 end

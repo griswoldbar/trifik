@@ -10,6 +10,6 @@ interpreter = Interpreter.new
 executive = Executive.new(player)
 game = Game.new(interpreter, executive)
 
-while true do
-  game.play
-end
+# while true do
+#   game.play
+# end

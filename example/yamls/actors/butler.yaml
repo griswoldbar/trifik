@@ -10,3 +10,18 @@
         - :ballroom
         - :garden
         - :ballroom
+  :collections:
+    :conversations:
+      :butler_talk1:
+        :text:
+          "who are you":
+            "i am the butler":
+              "you are an arse":
+                "how dare you!"
+              "you are great":
+                "why thank you"
+          "what is your name":
+            "i am humping, the butler"
+            
+            
+  

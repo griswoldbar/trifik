@@ -31,4 +31,4 @@ require_relative 'trifik/models/connection'
 require_relative 'trifik/models/item'
 require_relative 'trifik/models/player'
 require_relative 'trifik/models/room'
-
+require_relative 'trifik/models/conversation'
