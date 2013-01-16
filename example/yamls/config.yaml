@@ -6,6 +6,7 @@
   - :rooms
   - :zones
   - :conversations
+  - :chroniclers
 :synonyms:
   :exits: :connections
   :entrances: :connections

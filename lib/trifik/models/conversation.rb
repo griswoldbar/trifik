@@ -1,27 +1,20 @@
 class Conversation < HashtiveRecord::Base
   #untested
+  
+  class ResponseNotFound < Exception; end
+  
   belongs_to :actor
   
-  columns :text
-  
+  columns :prompts
+
+  #multiple prompts could yield same answer... where to deal wtih? in yaml?
   def reply(*utterances)
-    result = utterances.inject(text) do |text, utterance|
-      response = text.send(utterance.to_sym)
-      fish response
-    end
-  end
-  
-  private
-  
-  def fish(response)
-    if response.is_a? String
-      response
-    elsif response.nil?
-      actor.no_reply
-    else
-      hash = response.marshal_dump
-      hash[hash.keys.first]
-    end
+    utterances.inject(self) do |conversation, utterance|
+      prompt = conversation.prompts.find {|p| p.respond_to?(utterance) }
+      !!prompt ? prompt.send(utterance) : raise(ResponseNotFound)
+    end.response
+  rescue ResponseNotFound
+    actor.no_reply
   end
   
 end

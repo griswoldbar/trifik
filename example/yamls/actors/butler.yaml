@@ -13,15 +13,13 @@
   :collections:
     :conversations:
       :butler_talk1:
-        :text:
-          "who are you":
-            "i am the butler":
-              "you are an arse":
-                "how dare you!"
-              "you are great":
-                "why thank you"
-          "what is your name":
-            "i am humping, the butler"
-            
-            
-  
+        :prompts: 
+          - "who are you":
+              :response: "i am the butler"
+              :prompts: 
+                - "the butler of what":
+                    :response: "this castle"
+                - "big deal":
+                    :response: "watch your mouth"
+          - "why are you sitting there":
+              :response: "because i feel like it"
